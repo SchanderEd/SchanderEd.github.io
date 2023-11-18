@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
+  <link rel="icon" type="image/x-icon" href="./assets/images/Favicon.ico">
+  <title>KETTOX</title>
+</head>
+
+<body class="body">
+
+  <header class="header">
+    <div class="container header__container d-flex align-items-center">
+      <div class="col-sm-7 header__logo-wrapper">
+        <a href="#" class="header__logo-link">
+          <img class="header__logo" src="./assets/images/logo.png" alt="KETTOX">
+        </a>
+      </div>
+      <div class="header__descr-wrapper col-sm-5">
+        <p class="header__descr header__descr-effectiveness">100% эффективная формула</p>
+        <p class="header__descr header__descr-delivery">Бесконтактная доставка по всей России</p>
+      </div>
+      <h1 class="header__heading-mobile">KETTOX® Комфортная замена кето диеты</h1>
+    </div>
+  </header>
+<div class="modal fade animate__animated animate__fadeInUp" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-left">
+          <img src="./assets/images/kettoxModal.png" alt="KETTOX">
+        </div>
+        <div class="modal-right">
+          <p class="modal-heading">До конца акции:</p>
+          <div class="modal-timer modal-timer-wrapper">
+            <div class="modal-timer__hours modal-timer__time">
+              <span class="hours time-wrapper" id="hours"></span>
+              <svg class="separator-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#dots"></use>
+              </svg>
+            </div>
+            <div class="modal-timer__minutes modal-timer__time">
+              <span class="minutes time-wrapper" id="minutes"></span>
+              <svg class="separator-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#dots"></use>
+              </svg>
+            </div>
+            <div class="modal-timer__seconds modal-timer__time">
+              <span class="seconds time-wrapper" id="seconds"></span>
+            </div>
+          </div>
+          <p class="modal-descr">Успейте оформить заказ по промо-цене с доставкой в %User_IP_GEO%"</p>
+          <div class="modal-price-block">
+            <p class="modal-price-heading">Промо-цена:</p>
+            <p class="modal-price-cost">142 руб</p>
+          </div>
+          <div class="modal-form-wrapper">
+            <form action="" class="modal-form">
+              <span class="banner__form-name banner__input-heading">Введите ваше имя</span>
+              <input type="text" class="banner__input-name banner__form-input" placeholder="Иванова И. И.">
+              <span class="banner__form-name banner__input-heading">Введите ваш телефон</span>
+              <input type="text" class="banner__input-tel banner__form-input" placeholder="+7 ХХХ ХХХ-ХХ-ХХ">
+              <div class="banner__btn-wrapper">
+                <button class="banner__form-btn">ЗАКАЗАТЬ KETTOX</button>
+              </div>
+            </form>
+          </div>
+          <span class="purchases">Купили за сегодня: 52 чел.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<template id="popupGuest">
+  <div class="popup__wrapper popup__guest animate_animated animate__fadeInRight" id>
+    <button class="popup__close-btn" id></button>
+    <div class="popup__left">
+      <svg class="people-svg">
+        <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#people"></use>
+      </svg>
+    </div>
+    <div class="popup__right">
+      <p class="popup__content">
+        Количество посетителей на сайте:
+      </p>
+      <p class="popup__count">172</p>
+    </div>
+  </div>
+</template>
+
+<template id="popupCallback">
+  <div class="popup__wrapper popup__callback animate_animated animate__fadeInRight" id>
+    <button class="popup__close-btn" id>
+    </button>
+    <div class="popup__left">
+      <svg class="callback-svg">
+        <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#callback"></use>
+      </svg>
+    </div>
+    <div class="popup__right">
+      <p class="popup__content">
+        Ольга М. сделала заявку на обратный звонок
+      </p>
+    </div>
+  </div>
+</template>
+
+<template id="popupSale">
+  <div class="popup__wrapper popup__sale animate_animated animate__fadeInRight" id>
+    <button class="popup__close-btn" id>
+    </button>
+    <div class="popup__left">
+      <svg class="sale-svg">
+        <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#sale"></use>
+      </svg>
+    </div>
+    <div class="popup__right">
+      <p class="popup__content">
+        Ольга М. только что совершила покупку на сумму 5 600 руб.
+      </p>
+    </div>
+  </div>
+</template>
+
+<div class="popup"></div>
+<main>
+    <section class="banner">
+  <div class="container banner__container d-flex">
+    <div class="banner__left">
+      <h1 class="banner__heading">
+        KETTOX – ЗАМЕНА КЕТО ДИЕТЫ И ПОХУДЕНИЕ БЕЗ МУЧЕНИЙ
+      </h1>
+      <p class="banner__descr">
+        С новым средством KETTOX можно сжечь до 17 кг жира, не прибегая к мучительной кето диете
+      </p>
+      <div class="banner__list-wrapper d-flex">
+        <img src="./assets/images/kettoxTabl.png" alt="kettox" class="banner__kettox-tabl">
+        <ul class="banner__list">
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Вызывает состояние “кетоза” с первого применения </p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Блокирует усвоение калорий из пищи</p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Переключает организм на сжигание жира </p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Без необходимости отказа от привычного питания</p>
+          </li>
+        </ul>
+        <img src="./assets/images/kettoxBox.png" alt="kettox" class="banner__kettox-box">
+      </div>
+    </div>
+    <div class="banner__right">
+      <div class="banner__form-wrapper">
+        <div class="banner__action-wrapper">
+          <p class="banner__place-action">
+            Акция действует только<br> на территории России и стран СНГ
+          </p>
+          <p class="banner__place-action-mobile">
+            Акция! Закажите KETTOX прямо сейчас всего за 147 руб.
+          </p>
+        </div>
+        <div class="banner__price-block d-flex">
+          <p class="banner__old-price">
+            Старая цена
+            <span class="old-price price">3889 руб</span>
+          </p>
+          <p class="banner__new-price">
+            Новая цена
+            <span class="new-price price">142 руб</span>
+          </p>
+        </div>
+        <form class="banner__form">
+          <span class="banner__form-name banner__input-heading">Введите ваше имя</span>
+          <input type="text" class="banner__input-name banner__form-input" placeholder="Иванова И. И.">
+          <span class="banner__form-name banner__input-heading">Введите ваш телефон</span>
+          <input type="text" class="banner__input-tel banner__form-input" placeholder="+7 ХХХ ХХХ-ХХ-ХХ">
+          <p class="banner__form-quantity">Осталось всего 5 приборов на российском складе! НЕ УПУСТИ СВОЙ ШАНС!</p>
+          <div class="banner__btn-wrapper">
+            <button class="banner__form-btn">ЗАКАЗАТЬ KETTOX</button>
+          </div>
+        </form>
+        <div class="banner__security-block">
+          <svg class="security-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#security"></use>
+          </svg>
+          <p class="banner__policy">
+            Мы не разглашаем Ваши личные данные и не передаем оставленную Вами информацию третьим лицам. * При заказе
+            курса
+          </p>
+        </div>
+        <p class="banner__sales">
+          Уже получили на этой неделе: 297 чел.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <section class="quickly">
+  <div class="container">
+    <h2 class="quickly__heading">
+      Как быстро Вы похудеете с помощью KETTOX?
+    </h2>
+    <div class="swiper quickly__swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="quickly__slide swiper-slide">
+          <h3 class="quickly__slide-heading">
+            1-2 НЕДЕЛЯ
+          </h3>
+          <ul class="quickly__results-list">
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Уходит 2-4 килограмма</p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Очищение организма от шлаков, необходимо пить много воды </p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Снижается аппетит, уходит чувство голода</p>
+            </li>
+          </ul>
+          <div class="quickly__img-wrapper">
+            <img src="./assets/images/firstSlide.png" alt="results" class="quickly__results-img">
+          </div>
+        </div>
+        <div class="quickly__slide swiper-slide">
+          <h3 class="quickly__slide-heading">
+            3-4 НЕДЕЛЯ
+          </h3>
+          <ul class="quickly__results-list">
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Потеря веса достигает 10 килограммов</p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Жир уходит из самых труднодоступных мест</p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Ваш метаболизм возвращается в нормальный темп</p>
+            </li>
+          </ul>
+          <div class="quickly__img-wrapper">
+            <div class="swiper-button-next"></div>
+            <img src="./assets/images/secondSlide.png" alt="results" class="quickly__results-img">
+          </div>
+        </div>
+        <div class="quickly__slide swiper-slide">
+          <h3 class="quickly__slide-heading">
+            5-6 НЕДЕЛЯ
+          </h3>
+          <ul class="quickly__results-list">
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Общая потеря веса за курс от 13 до 17 кг и больше </p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Вы больше не переедаете, питаетесь правильно   </p>
+            </li>
+            <li class="quickly__results-item">
+              <div class="quickly__results-svg-wrapper">
+                <svg class="result-svg">
+                  <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+                </svg>
+              </div>
+              <p class="quickly__results-descr">Вес стабилизируется, жир не накапливается</p>
+            </li>
+          </ul>
+          <div class="quickly__img-wrapper">
+            <div class="swiper-button-prev"></div>
+            <img src="./assets/images/thirdSlide.png" alt="results" class="quickly__results-img">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</section>
+    <section class="approach">
+  <div class="container">
+    <div class="approach__top">
+      <h2 class="approach__heading">
+        KETTOX – научный подход к похудению
+      </h2>
+      <p class="approach__descr">
+        Долгое время замены кето диете не было. И только в 2019 году было запатентовано новое средство для похудения
+        KETTOX с содержанием природных альфа-кетонов, которые вызывают состояние кетоза без диет и голодания.
+        Натуральная формула средства объединяет наиболее богатые природные источники альфа-кетонов, действие которых
+        превосходит эффект кето диеты на 40%.
+      </p>
+    </div>
+    <div class="approach__bottom">
+      <div class="approach__grid-card-1 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/mango.png" alt="Манго" class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Африканское манго
+          </h3>
+          <p class="approach__card-descr">
+            Поддерживает липидный обмен и нормализует сахар в крови
+          </p>
+        </div>
+      </div>
+      <div class="approach__grid-card-2 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/cola.png" alt="Готу кола" class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Готу кола 
+          </h3>
+          <p class="approach__card-descr">
+            Ускоряет водно-солевой обмен, препятствует образованию целлюлита
+          </p>
+        </div>
+      </div>
+      <div class="approach__grid-card-3 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/tamarind.png" alt="Тамаринд" class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Тамаринд
+          </h3>
+          <p class="approach__card-descr">
+            Содержит природные альфа-кетоны, ускоряет жиросжигание и запускает кетоз
+          </p>
+        </div>
+      </div>
+      <div class="approach__grid-card-4 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/hoodia.png" alt="Худия гордони" class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Худия гордони
+          </h3>
+          <p class="approach__card-descr">
+            Содержит алканы и витамин, блокирует чувство голода
+          </p>
+        </div>
+      </div>
+      <div class="approach__grid-card-5 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/asai.png" alt="Ягода асаи " class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Ягода асаи 
+          </h3>
+          <p class="approach__card-descr">
+            Концентрат аминокислот и микроэлементов, улучшает состояние кожи, волос, ногтей
+          </p>
+        </div>
+      </div>
+      <div class="approach__grid-card-6 approach__card">
+        <div class="approach__card-left">
+          <svg class="circle-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+          </svg>
+          <img src="./assets/images/golubika.png" alt="Канадская голубика" class="approach__img-product">
+        </div>
+        <div class="approach__card-right">
+          <h3 class="approach__card-heading">
+            Канадская голубика
+          </h3>
+          <p class="approach__card-descr">
+            эффективно проникает и расщепляет клетки “жировых депо”
+          </p>
+        </div>
+      </div>
+      <div class="approach__img-card">
+        <div class="approach__img-wrapper">
+          <img src="./assets/images/sostav1.png" alt="Состав">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section class="banner">
+  <div class="container banner__container d-flex">
+    <div class="banner__left">
+      <h1 class="banner__heading">
+        KETTOX – ЗАМЕНА КЕТО ДИЕТЫ И ПОХУДЕНИЕ БЕЗ МУЧЕНИЙ
+      </h1>
+      <p class="banner__descr">
+        С новым средством KETTOX можно сжечь до 17 кг жира, не прибегая к мучительной кето диете
+      </p>
+      <div class="banner__list-wrapper d-flex">
+        <img src="./assets/images/kettoxTabl.png" alt="kettox" class="banner__kettox-tabl">
+        <ul class="banner__list">
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Вызывает состояние “кетоза” с первого применения </p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Блокирует усвоение калорий из пищи</p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Переключает организм на сжигание жира </p>
+          </li>
+          <li class="banner__item">
+            <div class="banner__results-svg-wrapper">
+              <svg class="result-svg">
+                <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#resultDecr"></use>
+              </svg>
+            </div>
+            <p class="banner__item-descr">Без необходимости отказа от привычного питания</p>
+          </li>
+        </ul>
+        <img src="./assets/images/kettoxBox.png" alt="kettox" class="banner__kettox-box">
+      </div>
+    </div>
+    <div class="banner__right">
+      <div class="banner__form-wrapper">
+        <div class="banner__action-wrapper">
+          <p class="banner__place-action">
+            Акция действует только<br> на территории России и стран СНГ
+          </p>
+          <p class="banner__place-action-mobile">
+            Акция! Закажите KETTOX прямо сейчас всего за 147 руб.
+          </p>
+        </div>
+        <div class="banner__price-block d-flex">
+          <p class="banner__old-price">
+            Старая цена
+            <span class="old-price price">3889 руб</span>
+          </p>
+          <p class="banner__new-price">
+            Новая цена
+            <span class="new-price price">142 руб</span>
+          </p>
+        </div>
+        <form class="banner__form">
+          <span class="banner__form-name banner__input-heading">Введите ваше имя</span>
+          <input type="text" class="banner__input-name banner__form-input" placeholder="Иванова И. И.">
+          <span class="banner__form-name banner__input-heading">Введите ваш телефон</span>
+          <input type="text" class="banner__input-tel banner__form-input" placeholder="+7 ХХХ ХХХ-ХХ-ХХ">
+          <p class="banner__form-quantity">Осталось всего 5 приборов на российском складе! НЕ УПУСТИ СВОЙ ШАНС!</p>
+          <div class="banner__btn-wrapper">
+            <button class="banner__form-btn">ЗАКАЗАТЬ KETTOX</button>
+          </div>
+        </form>
+        <div class="banner__security-block">
+          <svg class="security-svg">
+            <use xlink:href="../assets/sprites/assets/sprites/sprite.svg#security"></use>
+          </svg>
+          <p class="banner__policy">
+            Мы не разглашаем Ваши личные данные и не передаем оставленную Вами информацию третьим лицам. * При заказе
+            курса
+          </p>
+        </div>
+        <p class="banner__sales">
+          Уже получили на этой неделе: 297 чел.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="./assets/js/swiper-bundle.min.js"></script>
+<script src="./assets/js/main.min.js" type="module"></script>
+</body>
+
+</html>
